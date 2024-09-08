@@ -1,0 +1,11 @@
+[package]
+name = "img_utils"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+image = { workspace = true }
+rayon = { workspace = true }
+color-eyre = { workspace = true }
+memmap2 = { workspace = true }
+clap = { workspace = true, features = ["derive"] }

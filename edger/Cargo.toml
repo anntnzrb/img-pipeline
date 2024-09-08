@@ -1,0 +1,9 @@
+[package]
+name = "edger"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+img_utils = { path = "../img_utils" }
+color-eyre = { workspace = true }
+clap = { workspace = true }

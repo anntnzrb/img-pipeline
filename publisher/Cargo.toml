@@ -1,0 +1,11 @@
+[package]
+name = "publisher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+img_utils = { path = "../img_utils" }
+color-eyre = { workspace = true }
+image = { workspace = true }
+clap = { workspace = true }
+tempfile = "3.5"

@@ -1,0 +1,29 @@
+name: Cargo Dependencies Update
+
+on:
+  workflow_dispatch: # manual triggering
+  schedule:
+  - cron: "0 0 1 * *" # run 1st of each month
+
+permissions:
+  contents: write
+
+jobs:
+  cargo-deps-update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Update Cargo Dependencies
+        run: |
+          cargo update
+
+      - name: Set-up Git & Commit & Push Changes
+        run: |
+          git config user.name 'github-actions'
+          git config user.email 'actions@github.com'
+          git commit -m 'chore(cargo): update lockfile' Cargo.lock || :
+          git pull --rebase --autostash
+          git push
